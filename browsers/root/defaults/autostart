@@ -1,5 +1,0 @@
-#! /bin/bash
-opera ${OPERA_CLI}
-microsoft-edge ${EDGE_CLI}
-firefox ${FIREFOX_CLI}
-wrapped-chromium ${CHROME_CLI}
