@@ -18,11 +18,16 @@ RUN apt-get update && apt-get install -y \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-# Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-# Create directory for application
-RUN mkdir -p /var/www/html
+COPY app /app
 
-# Set working directory
-WORKDIR /var/www/html
+RUN cd /app && composer install
+
+COPY cron /etc/cron.d/cron
+RUN chmod 0644 /etc/cron.d/cron
+RUN crontab /etc/cron.d/cron
+
+CMD ["cron", "-f"]
+
+WORKDIR /app
