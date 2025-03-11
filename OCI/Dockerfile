@@ -25,7 +25,7 @@ COPY app /app
 RUN cd /app && composer install
 
 COPY cron /etc/cron.d/cron
-RUN chmod 0644 /etc/cron.d/cron
+RUN chmod 644 /etc/cron.d/cron
 RUN crontab /etc/cron.d/cron
 
 CMD ["cron", "-f"]

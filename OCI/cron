@@ -1,1 +1,1 @@
-* * * * * /usr/bin/php /app/index.php >> /app/oci.log
+* * * * * root /usr/bin/php /app/index.php >> /app/oci.log
