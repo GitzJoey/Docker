@@ -1,0 +1,5 @@
+name: honeygain
+services:
+  honeygain:
+    image: honeygain/honeygain
+    command: -tou-accept -email gitzjoey@gmail.com -pass qweasdzxc -device debian

@@ -1,1 +1,20 @@
-
+name: code-server
+services:
+  code-server:
+    image: gitzjoey/code-server:latest
+    container_name: code-server
+    hostname: code-server
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Asia/Singapore
+      - PASSWORD=gitzjoey_code
+      - SUDO_PASSWORD=gitzjoey
+      - PROXY_DOMAIN=code.gitzjoey.online
+      - DEFAULT_WORKSPACE=/config/workspace
+    volumes:
+      - /home/gitzjoey/code-server:/config
+    ports:
+      - 8080:8443
+      - 5173:5173
+    restart: unless-stopped

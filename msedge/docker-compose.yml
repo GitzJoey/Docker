@@ -1,0 +1,33 @@
+services:
+  msedge:
+    image: lscr.io/linuxserver/msedge:latest
+    container_name: msedge
+    security_opt:
+      - seccomp:unconfined
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Asia/Singapore
+      - PASSWORD=gitzjoey_browse
+      - CUSTOM_USER=gitzjoey
+      - TITLE=Edge
+    volumes:
+      - /home/gitzjoey/msedge:/config
+    ports:
+      - 3008:3000
+      - 3004:3001
+    shm_size: "1gb"
+    restart: unless-stopped
+    networks:
+      - msedge_default
+
+networks:
+  msedge_default:
+    driver: bridge
+    name: msedge_default
+    ipam:
+      config:
+        - subnet: 172.66.0.0/24
+          gateway: 172.66.0.1
+          ip_range: 172.66.0.10/24
+
