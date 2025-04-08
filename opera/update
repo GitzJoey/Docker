@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# Script to update docker-compose services (pull or rebuild depending on configuration)
+
+set -e
+
+COMPOSE_FILE="docker-compose.yml"
+COMPOSE_CMD="docker compose"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd "$SCRIPT_DIR"
+
+echo "🔍 Checking docker-compose file: $COMPOSE_FILE"
+
+if grep -q "build:" "$COMPOSE_FILE"; then
+  echo "🔧 Build directive found — rebuilding services..."
+  $COMPOSE_CMD build --no-cache
+else
+  echo "⬇️ Pulling latest images..."
+  $COMPOSE_CMD pull
+fi
+
+echo "🔄 Restarting services..."
+$COMPOSE_CMD up -d
+
+echo "✅ Update complete."
