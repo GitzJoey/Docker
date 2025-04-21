@@ -9,5 +9,7 @@ RUN apt-get update -y && \
 
 RUN npm install -g appwrite-cli
 
+RUN echo "alias ap='appwrite'" >> /etc/bash.bashrc
+
 EXPOSE 5173
 
