@@ -2,14 +2,12 @@ FROM linuxserver/code-server:latest
 
 USER root
 
-RUN \
-  apt-get update -y && \
-  apt-get upgrade -y
+RUN apt-get update -y && \
+    apt-get install -y curl gnupg ca-certificates && \
+    curl -fsSL https://deb.nodesource.com/setup_22.x | bash - && \
+    apt-get install -y nodejs jq
 
-RUN \
-  RELEASE_INFO=$(curl -s https://nodejs.org/dist/index.json) && \
-  NODEJS=$(echo "$RELEASE_INFO" | jq -r '.[] | select(.lts != null) | .version' | head -n 1 | sed 's/^v//' | awk -F. '{print $1}') && \
-  curl -sL https://deb.nodesource.com/setup_${NODEJS}.x | bash - && \
-  apt-get install -y nodejs
+RUN npm install -g appwrite-cli
 
 EXPOSE 5173
+
