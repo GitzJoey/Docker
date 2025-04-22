@@ -1,0 +1,22 @@
+services:
+  webtop-xfce:
+    image: lscr.io/linuxserver/webtop:latest
+    container_name: webtop-xfce
+    security_opt:
+      - seccomp:unconfined
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - SUBFOLDER=/
+      - TITLE=Webtop XFCE
+    volumes:
+      - /home/gitzjoey/webtop-xfce:/config
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - 3400:3000
+      - 3401:3001
+    devices:
+      - /dev/dri:/dev/dri
+    shm_size: "1gb"
+    restart: no
