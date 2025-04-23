@@ -2,14 +2,17 @@ services:
   vscode:
     image: gitzjoey/vscode:latest
     container_name: vscode
+    hostname: vscode
     security_opt:
       - seccomp:unconfined
     environment:
       - PUID=1000
       - PGID=1000
-      - TZ=Etc/UTC
+      - TZ=Asia/Singapore
       - SUBFOLDER=/
       - TITLE=VSCode Webtop
+      - CUSTOM_USER=gitzjoey
+      - PASSWORD=gitzjoey_vscode
     volumes:
       - /home/gitzjoey/vscode:/config
       - /var/run/docker.sock:/var/run/docker.sock

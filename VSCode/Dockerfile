@@ -11,3 +11,5 @@ RUN curl -sSL https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor 
 RUN apt-get update && apt-get install -y code
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
+
+LABEL custom_build_by="gitzjoey"
