@@ -10,5 +10,3 @@ RUN curl -fsSL "https://windsurf-stable.codeiumdata.com/wVxQEIWkwPUEAGf3/windsur
     apt-get install -y windsurf git && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
-
-USER abc
