@@ -20,3 +20,12 @@ services:
       - /dev/dri:/dev/dri
     shm_size: "1gb"
     restart: no
+    entrypoint: |
+      sh -c "
+      echo 'deb http://deb.debian.org/debian stable main contrib non-free' > /etc/apt/sources.list &&
+      echo 'deb http://deb.debian.org/debian-security stable-security main contrib non-free' >> /etc/apt/sources.list &&
+      echo 'deb http://deb.debian.org/debian stable-updates main contrib non-free' >> /etc/apt/sources.list &&
+      echo 'deb http://deb.debian.org/debian stable-backports main contrib non-free' >> /etc/apt/sources.list &&
+      apt-get update &&
+      exec /init
+      "
