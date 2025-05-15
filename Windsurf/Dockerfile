@@ -9,9 +9,6 @@ RUN curl -fsSL "https://windsurf-stable.codeiumdata.com/wVxQEIWkwPUEAGf3/windsur
     apt-get update && \
     apt-get install -y windsurf git curl ca-certificates gnupg
 
-RUN curl -fsSL https://deb.nodesource.com/setup_22.x | bash - && \
-    apt-get install -y nodejs
-
 RUN apt-get upgrade -y windsurf && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
