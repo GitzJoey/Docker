@@ -11,7 +11,7 @@ services:
     environment:
       - STORAGE_DIR=/app/server/storage
       - LLM_PROVIDER=perplexity
-      - PERPLEXITY_API_KEY=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
+      - PERPLEXITY_API_KEY=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
       - VECTOR_DB=lancedb
       - PASSWORDMINCHAR=8
       - WHISPER_PROVIDER=local

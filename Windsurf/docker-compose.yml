@@ -2,6 +2,7 @@ services:
   windsurf:
     image: gitzjoey/windsurf:latest
     container_name: windsurf
+    hostname: windsurf
     security_opt:
       - seccomp:unconfined
     environment:
