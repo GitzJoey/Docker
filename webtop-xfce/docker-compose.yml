@@ -2,6 +2,7 @@ services:
   webtop-xfce:
     image: lscr.io/linuxserver/webtop:debian-xfce
     container_name: webtop-xfce
+    hostname: webtop-xfce
     security_opt:
       - seccomp:unconfined
     environment:
