@@ -20,6 +20,12 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
+# Add sudo and grant kasm-user passwordless access
+RUN apt-get update && \
+    apt-get install -y sudo && \
+    echo "kasm-user ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/kasm-user && \
+    chmod 0440 /etc/sudoers.d/kasm-user
+
 # Install VS Code
 RUN curl -fsSL https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg && \
     install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/ && \

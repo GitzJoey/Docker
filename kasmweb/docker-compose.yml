@@ -10,6 +10,7 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=Asia/Singapore
+      - VNC_PW=gitzjoey
     volumes:
       - kasmweb_home:/home/kasm-user
     restart: no
