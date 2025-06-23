@@ -3,9 +3,8 @@
   "description": "Runs Opera browser in a Docker container with X11 forwarding",
   "note": "Make sure X11 forwarding is configured properly on your host.",
   "platform": "linux",
-  "logo": "https://raw.githubusercontent.com/GitzJoey/Docker/imgs/main/icons/opera.png", 
-  "templateUniqueIdentifier": "com.example.opera",
+  "logo": "https://github.com/GitzJoey/Docker/blob/main/imgs/opera-icon.png", 
   "type": 0,
   "stackFileAccessMode": "remote",
-  "stackFile": "https://raw.githubusercontent.com/yourusername/your-docker-repo/main/docker-compose.yml" 
+  "stackFile": "https://raw.githubusercontent.com/GitzJoey/Docker/refs/heads/main/portainer-templates/opera/docker-compose.yml" 
 }
