@@ -2,4 +2,5 @@ name: honeygain
 services:
   honeygain:
     image: honeygain/honeygain
+    container_name: honeygain
     command: -tou-accept -email gitzjoey@gmail.com -pass qweasdzxc -device debian
