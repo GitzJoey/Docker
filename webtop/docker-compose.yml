@@ -10,9 +10,11 @@ services:
       - PGID=1000
       - TZ=Etc/UTC
       - SUBFOLDER=/
-      - TITLE=Webtop
+      - TITLE=WebTop
       - DOCKER_MODS=linuxserver/mods:universal-package-install
       - INSTALL_PACKAGES=git|nodejs
+      - CUSTOM_USER=gitzjoey
+      - PASSWORD=gitzjoey_webtop
     volumes:
       - /home/gitzjoey/webtop:/config
       - /var/run/docker.sock:/var/run/docker.sock
