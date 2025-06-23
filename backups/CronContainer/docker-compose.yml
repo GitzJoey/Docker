@@ -1,0 +1,11 @@
+services:
+  crontesting:
+    build: .
+    container_name: crontesting
+    volumes:
+      - cron_logs:/var/log
+    restart: unless-stopped
+
+volumes:
+  cron_logs:
+    driver: local

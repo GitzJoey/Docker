@@ -1,0 +1,23 @@
+services:
+  windsurf:
+    image: gitzjoey/windsurf:latest
+    container_name: windsurf
+    hostname: windsurf
+    security_opt:
+      - seccomp:unconfined
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - SUBFOLDER=/
+      - TITLE=Windsurf Webtop
+    volumes:
+      - /home/gitzjoey/windsurf:/config
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - 3510:3000
+      - 3511:3001
+    devices:
+      - /dev/dri:/dev/dri
+    shm_size: "1gb"
+    restart: no

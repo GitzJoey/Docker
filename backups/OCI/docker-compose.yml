@@ -1,0 +1,14 @@
+services:
+  oci:
+    build: .
+    container_name: oci
+    volumes:
+      - oci_volume:/app
+    restart: unless-stopped
+    environment:
+      - TZ=UTC
+    command: cron -f
+
+volumes:
+  oci_volume:
+    driver: local
