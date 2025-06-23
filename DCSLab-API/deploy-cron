@@ -1,1 +1,0 @@
-0 0 * * * root cd /var/www/html && git pull origin main && composer install && service apache2 reload

@@ -1,6 +1,0 @@
-name: ms-rewards
-services:
-  ms-rewards:
-    image: gitzjoey/ms-rewards:latest
-    ports:
-      - 8282:5173
