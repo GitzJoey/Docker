@@ -1,6 +1,12 @@
-name: ms-rewards
 services:
   ms-rewards:
-    image: gitzjoey/ms-rewards:latest
+    image: gitzjoey/node-app:latest
+    container_name: ms-rewards
     ports:
-      - 8282:5173
+      - "8282:5173"
+    volumes:
+      - /root/MSEdgeSearchClicker:/home/node/app
+    tty: true
+    working_dir: /home/node/app
+    command: sh -c "npm install && npm run dev"
+    restart: unless-stopped

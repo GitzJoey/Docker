@@ -1,0 +1,23 @@
+services:
+  transmission:
+    image: lscr.io/linuxserver/transmission:latest
+    container_name: transmission
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Asia/Singapore
+      - TRANSMISSION_WEB_HOME=
+      - USER=
+      - PASS=
+      - WHITELIST=
+      - PEERPORT=
+      - HOST_WHITELIST=
+    volumes:
+      - /home/gitzjoey/transmission/data:/config
+      - /home/gitzjoey/downloads:/downloads
+      - /home/gitzjoey/watch/folder:/watch
+    ports:
+      - 9091:9091
+      - 51413:51413
+      - 51413:51413/udp
+    restart: unless-stopped
