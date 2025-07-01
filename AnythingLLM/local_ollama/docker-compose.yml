@@ -22,8 +22,8 @@ services:
       - TTS_PROVIDER=native
       - PASSWORDMINCHAR=8
     volumes:
-      - anythingllm_data:/app/server/storage
+      - data:/app/server/storage
     restart: always
 
 volumes:
-  anythingllm_data:
+  data:
