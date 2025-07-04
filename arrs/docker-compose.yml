@@ -1,0 +1,57 @@
+services:
+  prowlarr:
+    image: lscr.io/linuxserver/prowlarr:latest
+    container_name: prowlarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Asia/Singapore
+    volumes:
+      - prowlarr_config:/config
+    ports:
+      - 9696:9696
+    restart: unless-stopped
+
+  lidarr:
+    image: lscr.io/linuxserver/lidarr:latest
+    container_name: lidarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Asia/Singapore
+    volumes:
+      - lidarr_config:/config
+      - media_music:/music
+      - media_downloads:/downloads
+    ports:
+      - 8686:8686
+    restart: unless-stopped
+
+volumes:
+  prowlarr_config:
+    driver: local
+    driver_opts:
+      type: none
+      device: /root/arrs/prowlarr/config
+      o: bind
+
+  lidarr_config:
+    driver: local
+    driver_opts:
+      type: none
+      device: /root/arrs/lidarr/config
+      o: bind
+
+  media_music:
+    driver: local
+    driver_opts:
+      type: none
+      device: /root/arrs/music
+      o: bind
+
+  media_downloads:
+    driver: local
+    driver_opts:
+      type: none
+      device: /root/arrs/downloads
+      o: bind
