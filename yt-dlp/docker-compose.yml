@@ -1,0 +1,28 @@
+services:
+  yt-dlp:
+    image: gitzjoey/yt-dlp:latest
+    container_name: yt-dlp
+    hostname: yt-dlp
+    security_opt:
+      - seccomp:unconfined
+    environment:
+      - PUID=1001
+      - PGID=1001
+      - TZ=Etc/UTC
+      - SUBFOLDER=/
+      - TITLE=WebTop
+      - DOCKER_MODS=linuxserver/mods:universal-package-install
+      - INSTALL_PACKAGES=chromium
+      - CUSTOM_USER=gitzjoey
+      - PASSWORD=gitzjoey_ytdlp
+    volumes:
+      - yt-dlp:/config
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - 3440:3000
+      - 3441:3001
+    shm_size: "1gb"
+    restart: no
+
+volumes:
+  yt-dlp:
