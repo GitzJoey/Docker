@@ -1,0 +1,10 @@
+services:
+  wetty:
+    image: gitzjoey/wetty:latest
+    container_name: wetty
+    hostname: wetty
+    ports:
+      - "3030:3000"
+    environment:
+      PASSWORD: "gitzjoey_wetty"
+    restart: unless-stopped

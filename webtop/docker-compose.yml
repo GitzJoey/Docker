@@ -15,6 +15,7 @@ services:
       - INSTALL_PACKAGES=git|nodejs
       - CUSTOM_USER=gitzjoey
       - PASSWORD=gitzjoey_webtop
+      - MAX_RES=2160x1440
     volumes:
       - /home/gitzjoey/webtop:/config
       - /var/run/docker.sock:/var/run/docker.sock
