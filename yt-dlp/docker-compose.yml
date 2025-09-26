@@ -10,13 +10,11 @@ services:
       - PGID=1001
       - TZ=Etc/UTC
       - SUBFOLDER=/
-      - TITLE=WebTop
-      - DOCKER_MODS=linuxserver/mods:universal-package-install
-      - INSTALL_PACKAGES=chromium
+      - TITLE=Webtop - yt-dlp
       - CUSTOM_USER=gitzjoey
       - PASSWORD=gitzjoey_ytdlp
     volumes:
-      - yt-dlp:/config
+      - data:/config
       - /var/run/docker.sock:/var/run/docker.sock
     ports:
       - 3440:3000
@@ -25,4 +23,4 @@ services:
     restart: no
 
 volumes:
-  yt-dlp:
+  data:
