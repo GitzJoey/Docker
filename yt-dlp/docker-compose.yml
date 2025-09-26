@@ -10,7 +10,7 @@ services:
       - PGID=1001
       - TZ=Etc/UTC
       - SUBFOLDER=/
-      - TITLE=Webtop - yt-dlp
+      - TITLE=Webtop
       - CUSTOM_USER=gitzjoey
       - PASSWORD=gitzjoey_ytdlp
     volumes:
