@@ -21,7 +21,7 @@ services:
     ports:
       - 3440:3000
       - 3441:3001
-    shm_size: "1gb"
+    shm_size: "2gb"
     restart: no
 
 volumes:

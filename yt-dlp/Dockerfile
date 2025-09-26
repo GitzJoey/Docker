@@ -1,4 +1,4 @@
-FROM lscr.io/linuxserver/webtop:debian-xfce
+FROM lscr.io/linuxserver/webtop:latest
 
 ENV DEBIAN_FRONTEND=noninteractive
 
